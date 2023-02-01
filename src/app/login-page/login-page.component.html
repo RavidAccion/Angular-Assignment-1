@@ -1,0 +1,40 @@
+<section>
+  <div class="row">
+    <div class="col-4">
+      <div class="back-image">
+
+      </div>
+    </div>
+    <div class="col-8 d-flex justify-content-center">
+      <div>
+        <h1 class="pb-3">SIGN IN TO ACCION</h1>
+<h6>Enter Your Details Below</h6>
+<form [formGroup]="loginForm" (ngSubmit)="subData();" class="w-100">
+  <div class="form-group pb-3 pt-3">
+    <label class="pb-3" for="exampleInputEmail1">User Name</label>
+    <input type="text" class="form-control" formControlName="name" id="exampleInputEmail1"
+      aria-describedby="emailHelp">
+    <span class="Warning-color" *ngIf="loginForm.get('name').touched && loginForm.get('name').
+    hasError('required')">
+      Enter User Name</span>
+    <span class="Warning-color"*ngIf="loginForm.get('name').touched && loginForm.get('name').
+    hasError('minLength')">
+      Enter valid Name</span>
+  </div>
+  <div class="form-group  pb-3">
+    <label class="pb-3" for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" formControlName="Password"
+    id="exampleInputPassword1">
+    <span class="Warning-color"*ngIf="loginForm.get('Password').touched && loginForm.get('Password').
+    hasError('required')">Enter
+      password</span>
+  </div>
+  <div class=" text-center pb-3">
+    <button type="submit" class="btn btn-primary bt buttonchange"
+    [disabled]="!loginForm.valid">Log In</button>
+  </div>
+</form>
+      </div>
+    </div>
+  </div>
+</section>

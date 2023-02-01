@@ -1,0 +1,26 @@
+
+.row{
+  height:100vh
+}
+.Warning-color{
+color:red;
+}
+.col-8{
+  margin-top:auto;
+  margin-bottom:auto;
+}
+input.ng-touched.ng-invalid{
+  border:1px solid red;
+}
+input.ng-touched.ng-valid{
+  border:1px solid rgb(0, 255, 51);
+}
+
+.back-image{
+  background-image: url(../../assets/images/Loginpage.png);
+  background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    border-top-right-radius: 7%;
+  }
