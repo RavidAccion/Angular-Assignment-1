@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import {
   FormBuilder,
   FormControl,
@@ -6,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthserviceService } from '../authservice.service';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
@@ -13,7 +15,12 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent {
   loginForm: any = FormGroup;
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  token: any = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private AuthserviceService: AuthserviceService
+  ) {}
 
   ngOnInit(): void {
     this.loginFormBuild();
@@ -33,7 +40,9 @@ export class LoginPageComponent {
     console.log(this.loginForm.value.email);
     console.log(this.loginForm.value.Password);
     if (this.loginForm.valid) {
-      this.router.navigate([`/Home`]);
+      this.token = true;
+      sessionStorage.setItem('Token', this.token);
+      this.router.navigate(['/Home']);
     } else {
       console.log('no');
     }
